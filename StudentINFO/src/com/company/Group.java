@@ -40,4 +40,3 @@ public class Group {
         return students;
     }
 }
-

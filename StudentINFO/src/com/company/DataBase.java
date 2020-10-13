@@ -33,4 +33,13 @@ public class DataBase {
     }
 
     public int getGroupSize(){ return groups.size(); }
+
+    public Group getGroupByName(String name){
+        for (Group group: groups){
+            if(group.GroupNumber == name){
+                return group;
+            }
+        }
+        return  null;
+    }
 }
