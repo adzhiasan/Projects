@@ -6,7 +6,7 @@ import javax.swing.event.ListSelectionListener;
 
 public class DBForm extends JFrame
 {
-    private  JTextField textField;
+    private  JTextArea textField;
     private  JList<String> list;
 
     public DBForm(DataBase db)
@@ -16,7 +16,7 @@ public class DBForm extends JFrame
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        textField = new JTextField();
+        textField = new JTextArea();
         list = new JList<String>(getGroupNames(db));
 
         list.addListSelectionListener(new SelectionAction(list, textField));
@@ -39,9 +39,9 @@ public class DBForm extends JFrame
 
     private class  SelectionAction implements ListSelectionListener {
         private JList<String> groups;
-        private JTextField textField;
+        private JTextArea textField;
 
-        private SelectionAction(JList<String> groups, JTextField textField) {
+        private SelectionAction(JList<String> groups, JTextArea textField) {
             this.textField = textField;
             this.groups = groups;
         }
@@ -64,6 +64,7 @@ public class DBForm extends JFrame
 
         private void presentGroup(Group group){
             for(Student _student: group.allStudents()){
+
                 textField.setText(textField.getText() + "\n");
                 textField.setText(textField.getText() +
                         " Name: " + _student.getName() +
